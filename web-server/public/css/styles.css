@@ -1,7 +1,27 @@
-h1 {
-    color: rgb(173, 46, 46);
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-img {
+.main {
+    flex-grow: 1;
+}
+
+header {
+    color: burlywood;
+    margin-bottom: 16px;
+}
+
+footer {
+    color: burlywood;
+    margin-top: 16px;
+}
+
+header a {
+    text-decoration: none;
+}
+
+.portrait {
     width: 250px;
 }
