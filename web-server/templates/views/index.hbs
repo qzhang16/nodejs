@@ -4,15 +4,23 @@
         <title>weather</title>
         <link rel='icon' href='/img/weather.png'>
         <link rel='stylesheet' href='/css/styles.css'>
-        <script src='/script/t01.js'></script>
+        
 
     </head>
     <body>
         <div class='main'>
             {{>header}}
             <p>welcome to check the weather </p>
+            <form>
+                <input placeholder='location'>
+                <button>Search</button>
+            </form>
+            <p id='msg1'></p>
+            <p id='msg2'></p>
         </div>
+
         {{>footer}}
-        
+
+        <script src='/script/t01.js'></script>
     </body>
 </html>

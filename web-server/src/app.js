@@ -1,6 +1,8 @@
 const path = require('path')
 const express = require('express');
 const hbs = require('hbs')
+const geocode= require('./utils/geocode');
+const weather = require('./utils/weather');
 
 const app = express();
 
@@ -39,10 +41,36 @@ app.get('/about',(req,res) => {
 });
 
 app.get('/weather',(req,res) => {
-    res.send({location: 'Shanghai', weather: 'mist'});
+    if (! req.query.address) {
+        res.send({error: 'please provide the address for this weather forcast.'});
+    } else {
+
+        geocode( req.query.address, (error,{latitude,longitude,location} = {} ) => { //function parameter default value for object destruction.
+            if (error) {
+                //console.log(error);
+                res.send({error}); //object property shorthand
+            } else {
+                //console.log(latitude, longitude,location);
+                weather(latitude+','+longitude,(error,data) => {
+                    if (error) {
+                        //console.log(error);
+                        res.send({error});
+                    } else {
+                        //console.log(data);
+                        data.address = req.query.address;
+                        data.location = location;
+                        res.send(data);
+                    }
+                });
+            }
+        });
+
+        //res.send({location: 'Shanghai', weather: 'mist',address: req.query.address});
+    }
+    
 });
 
-app.get('/product',(req,res) => {
+app.get('/products',(req,res) => {
     if (! req.query.search) {
         res.send({error: 'you must provide a search term.'});
     } else {
