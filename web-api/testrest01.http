@@ -1,0 +1,34 @@
+###
+GET http://localhost:3000 HTTP/1.1
+
+###
+GET http://localhost:3000/api/books?genre=Fantasy HTTP/1.1
+
+
+###
+GET http://localhost:3000/api/books/612876c89815eb05d0e881fb HTTP/1.1
+
+###
+POST http://localhost:3000/api/books HTTP/1.1
+content-type: application/json
+
+{ "read":false,
+  "title":"love story",
+  "genre":"Fantasy",
+  "author":"Pet store" }
+
+###
+PUT http://localhost:3000/api/books/612876c89815eb05d0e881fb HTTP/1.1
+content-type: application/json
+
+{ "read":false,
+  "title":"love story2",
+  "genre":"Fantasy",
+  "author":"Pet store" }
+
+###
+PATCH http://localhost:3000/api/books/6124c2ecdbbbd170f4a3bbde HTTP/1.1
+content-type: application/json
+
+{ "read": true
+   }

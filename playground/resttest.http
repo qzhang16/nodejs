@@ -1,5 +1,11 @@
 http://api.weatherstack.com/current?access_key=1e80b9c08c072da0ac94d104df66b443&query=New York
 
 ###
-http://localhost:3000/weather
+GET http://localhost:8111/metadata?id=1 HTTP/1.1
+Authorization: Bearer 123.45
 
+###
+POST http://localhost:8111/metadata?id=1 HTTP/1.1
+Content-Type: text/plain
+
+< ../web-server/node_modules/express/History.md
