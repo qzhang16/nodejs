@@ -1,12 +1,15 @@
 ###
-GET http://localhost:3000 HTTP/1.1
+GET http://localhost:3000/api/books HTTP/1.1
+
+###
+GET http://localhost:8800 HTTP/1.1
 
 ###
 GET http://localhost:3000/api/books?genre=Fantasy HTTP/1.1
 
 
 ###
-GET http://localhost:3000/api/books/612876c89815eb05d0e881fb HTTP/1.1
+GET http://localhost:3000/api/books/6124c2ecdbbbd170f4a3bbde HTTP/1.1
 
 ###
 POST http://localhost:3000/api/books HTTP/1.1
@@ -27,8 +30,8 @@ content-type: application/json
   "author":"Pet store" }
 
 ###
-PATCH http://localhost:3000/api/books/6124c2ecdbbbd170f4a3bbde HTTP/1.1
+DELETE http://localhost:3000/api/books/612892ec80081007cefc4ded HTTP/1.1
 content-type: application/json
 
-{ "read": true
+{ "title": "cross over this piece"
    }
